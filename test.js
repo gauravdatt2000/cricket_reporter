@@ -7,8 +7,8 @@ const express = require('express')
 const app = express()
 
 // pdfkit lib
-const PDFDocument = require('pdfkit');
-const doc = new PDFDocument();
+// const PDFDocument = require('pdfkit');
+// const doc = new PDFDocument();
 
 // let arg = minimist(process.argv);
 // console.log(arg)
@@ -39,7 +39,7 @@ const data1 = dom.window.document.querySelectorAll("div.match-info.match-info-FI
 let ipl_2021 = [] ;
 
 // create pdf
-doc.pipe(fs.createWriteStream('output.pdf'));
+// doc.pipe(fs.createWriteStream('output.pdf'));
 
 // heading of the file 
 doc.fontSize(25).text('Some text with an embedded font!', 100, 100);
@@ -91,10 +91,10 @@ for(let i=0 ; i<data1.length; i++){
 
     // processing in doc  
 
-    doc.addPage().fontSize(15).text( ` ${ description } ` , 25 , 250) ;
-    doc.fontSize(15).text( ` ${ team1["name"]  }  ${ team1["score"] } ` , 25 , 300 );
-    doc.fontSize(15).text( ` ${ team2["name"]  }  ${ team2["score"] } ` , 25 , 350 );
-    doc.fontSize(15).text( ` ${ result  } ` , 25 , 400 );
+    // doc.addPage().fontSize(15).text( ` ${ description } ` , 25 , 250) ;
+    // doc.fontSize(15).text( ` ${ team1["name"]  }  ${ team1["score"] } ` , 25 , 300 );
+    // doc.fontSize(15).text( ` ${ team2["name"]  }  ${ team2["score"] } ` , 25 , 350 );
+    // doc.fontSize(15).text( ` ${ result  } ` , 25 , 400 );
 
     // the end 
 
@@ -109,7 +109,7 @@ fs.writeFileSync("ipl.json" , d11 ,  "utf8" ) ;
 
 // let data =
 
-doc.end();
+// doc.end();
 // pdf saved
 
 

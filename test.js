@@ -3,6 +3,8 @@ const axios = require("axios");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const fs = require("fs");
+const express = require('express')
+const app = express()
 
 // pdfkit lib
 const PDFDocument = require('pdfkit');
@@ -104,7 +106,22 @@ for(let i=0 ; i<data1.length; i++){
 // console.log(ipl_2021) ;
 let d11 = JSON.stringify(ipl_2021) ;
 fs.writeFileSync("ipl.json" , d11 ,  "utf8" ) ;
+
 // let data =
 
 doc.end();
 // pdf saved
+
+
+
+
+// api code
+
+app.get('/', function (req, res) {
+    const data = fs.readFileSync('ipl.json','utf8' );
+    // data = json.load(data) ;
+    res.send(data)
+
+})
+ 
+app.listen(process.env.PORT || 5000)

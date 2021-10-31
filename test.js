@@ -42,7 +42,7 @@ let ipl_2021 = [] ;
 // doc.pipe(fs.createWriteStream('output.pdf'));
 
 // heading of the file 
-doc.fontSize(25).text('Some text with an embedded font!', 100, 100);
+// doc.fontSize(25).text('Some text with an embedded font!', 100, 100);
 
 for(let i=0 ; i<data1.length; i++){
     

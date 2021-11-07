@@ -5,8 +5,9 @@ import express from 'express';
 
 const app = express()
 // add1(2 ,3) ;
+let my_port = process.env.PORT || 5000  ;
 
-app.listen( 5000 )
+app.listen( my_port )
 
 app.get('/', function (req, res) {
 

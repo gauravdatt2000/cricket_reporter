@@ -2,14 +2,14 @@ import puppeteer from "puppeteer"
 
 export async function run(url){
     
+    const browser = await puppeteer.launch({ 
+        headless : true ,
+        defaultViewport: null,
+        args:['--start-maximized' ]
+    })
+
     try{
-
-        const browser = await puppeteer.launch({ 
-            headless : true ,
-            defaultViewport: null,
-            args:['--start-maximized' ]
-        })
-
+        
         const page = await browser.newPage() ;
         page.setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36 OPR/38.0.2220.41")
         await page.goto(url  ) ;
@@ -84,7 +84,7 @@ export async function run(url){
     
         // end
     
-        await browser.close() ;
+        // await browser.close() ;
 
         return result ;
 
@@ -92,6 +92,9 @@ export async function run(url){
     }
     catch(err){
         console.log("our err " , err )
+    }
+    finally{
+        await browser.close();
     }
 
 }
